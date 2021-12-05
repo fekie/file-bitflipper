@@ -3,7 +3,7 @@ A rust binary that will flip one or more bits of a file (mostly for messing with
 
 # Example
 (bitflipped bentley)
-
+![name-of-you-image](https://github.com/Chloe-Woahie/file-bitflipper/blob/main/example-output/bentley-bitflipped-1.jpg?raw=true)
 
 # Usage
 ```Console
