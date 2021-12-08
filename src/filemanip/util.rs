@@ -20,9 +20,15 @@ pub fn get_file_name_without_extension(_path: &str) -> String {
     name_without_ext.to_string()
 }
 
-pub fn get_file_extension(path: &str) -> String {
-    let ext = Path::new(path).extension().unwrap().to_str().unwrap();
-    ext.to_string()
+pub fn get_file_extension(path: &str) -> Option<String> {
+    let ext_path_opt = Path::new(path).extension();
+
+    let ext_string = match ext_path_opt {
+        Some(ext) => Some(ext.to_string_lossy().into_owned()),
+        None => None,
+    };
+
+    ext_string
 }
 
 /* pub fn flip_bit<T: std::ops::BitXor<Output = T> + From<u8>>(chunk: T, index: usize) -> T {

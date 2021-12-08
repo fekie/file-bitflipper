@@ -18,7 +18,11 @@ pub fn flip_bits_in_binary_data(data: &mut Vec<u8>, amount: u32) {
 
 pub fn output_modified_file(old_path: &str, bytes: &[u8]) {
     let file_name = util::get_file_name_without_extension(old_path);
-    let file_extension = util::get_file_extension(old_path);
-    let output_path = format!("{}-bitflipped.{}", file_name, file_extension);
+    let file_extension_opt = util::get_file_extension(old_path);
+    let output_path = match file_extension_opt {
+        Some(extension) => format!("{}_modified.{}", file_name, extension),
+        None => format!("{}_modified", file_name),
+    };
+    //let output_path = format!("{}-bitflipped.{}", file_name, file_extension);
     fs::write(output_path, bytes).expect("Unable to write file");
 }

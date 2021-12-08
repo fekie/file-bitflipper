@@ -8,7 +8,7 @@ A rust binary that will flip one or more bits of a file (mostly for messing with
 # Usage
 ```Console
 $ git clone https://github.com/Chloe-Woahie/file-bitflipper.git
-$ file-bitflipper
+$ cd file-bitflipper
 $ cargo run -- --file ./test-images/bentley.jpg --amount 50
 ```
 

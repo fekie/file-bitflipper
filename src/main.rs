@@ -26,7 +26,7 @@ fn main() {
 
     let path = matches.value_of("file").unwrap();
     let amount = matches.value_of("amount").unwrap().parse::<u32>().unwrap();
-    let mut bytes = filemanip::load_file(path).unwrap();
+    let mut bytes = filemanip::load_file(path).expect("Could not find/load file");
 
     filemanip::flip_bits_in_binary_data(&mut bytes, amount);
 
